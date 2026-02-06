@@ -488,6 +488,34 @@ details .detail-body ul {
 </style>
 </head>
 <body>
+
+<!-- PASSWORD GATE -->
+<div id="pwGate" style="position:fixed;inset:0;z-index:9999;background:#0c0c14;display:flex;align-items:center;justify-content:center;">
+  <div style="text-align:center;max-width:400px;padding:40px;">
+    <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#7c3aed;margin-bottom:12px;">Dopamine Digital</p>
+    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:700;color:#f0f0f5;margin-bottom:8px;">Growth Plan</h2>
+    <p style="font-size:16px;color:#a0a0b8;margin-bottom:32px;">Enter the password to view this presentation</p>
+    <input id="pwInput" type="password" placeholder="Password" autocomplete="off" style="width:100%;padding:14px 20px;font-size:17px;font-family:'Inter',sans-serif;background:#16162a;border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#f0f0f5;outline:none;text-align:center;margin-bottom:12px;" onkeydown="if(event.key==='Enter')checkPw()">
+    <p id="pwError" style="font-size:14px;color:#ef4444;opacity:0;transition:opacity 200ms;margin-bottom:16px;">Incorrect password</p>
+    <button onclick="checkPw()" style="padding:12px 36px;font-size:16px;font-weight:600;font-family:'Inter',sans-serif;background:#7c3aed;color:#fff;border:none;border-radius:10px;cursor:pointer;transition:background 200ms;">View Presentation</button>
+  </div>
+</div>
+<script>
+function checkPw(){
+  var v=document.getElementById('pwInput').value;
+  if(v==='Dimitrius'){
+    document.getElementById('pwGate').style.display='none';
+    sessionStorage.setItem('tv_auth','1');
+  } else {
+    document.getElementById('pwError').style.opacity='1';
+    document.getElementById('pwInput').style.borderColor='rgba(239,68,68,0.5)';
+    setTimeout(function(){document.getElementById('pwError').style.opacity='0';document.getElementById('pwInput').style.borderColor='rgba(255,255,255,0.1)';},2000);
+  }
+}
+if(sessionStorage.getItem('tv_auth')==='1'){document.getElementById('pwGate').style.display='none';}
+else{document.getElementById('pwInput').focus();}
+</script>
+
 <div class="deck" id="deck">
 
 <!-- SLIDE 1: TITLE -->
@@ -521,7 +549,7 @@ details .detail-body ul {
       <ul class="bullet-list amber">
         <li><strong>100% referral-dependent</strong> &mdash; zero predictable pipeline</li>
         <li>No US market presence &mdash; 15,000 developers don't know you exist</li>
-        <li>Past cold email attempt (20K emails) failed &mdash; infrastructure was never diagnosed</li>
+        <li>Past cold email attempt (20K emails) worked then stopped &mdash; infrastructure was never diagnosed</li>
         <li>No content, no podcast, no LinkedIn presence building trust</li>
         <li>No CRM or follow-up system &mdash; leads die after first touch</li>
       </ul>
@@ -1264,7 +1292,7 @@ details .detail-body ul {
   <p style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:16px;">Core System</p>
 
   <details>
-    <summary>Pillar 1: GTM, Offer &amp; Lead Magnet Engine &mdash; <span class="text-accent" style="font-size:16px; margin-left:4px;">$5,000 value</span></summary>
+    <summary>Pillar 1: GTM, Offer &amp; Lead Magnet Engine &mdash; <span class="text-accent" style="font-size:16px; margin-left:4px;">$6,000 value</span></summary>
     <div class="detail-body">
       <ul>
         <li>ICP research &amp; positioning for 2 markets</li>
@@ -1276,7 +1304,7 @@ details .detail-body ul {
   </details>
 
   <details>
-    <summary>Pillar 2: AI Outbound System &mdash; <span class="text-accent" style="font-size:16px; margin-left:4px;">$9,000/mo value</span></summary>
+    <summary>Pillar 2: AI Outbound System &mdash; <span class="text-accent" style="font-size:16px; margin-left:4px;">$10,000/mo value</span></summary>
     <div class="detail-body">
       <ul>
         <li>LinkedIn Dream 100 managed campaign</li>
@@ -1288,7 +1316,7 @@ details .detail-body ul {
   </details>
 
   <details class="mb-32">
-    <summary>Pillar 3: Lead Management &amp; Nurture &mdash; <span class="text-accent" style="font-size:16px; margin-left:4px;">$3,000/mo value</span></summary>
+    <summary>Pillar 3: Lead Management &amp; Nurture &mdash; <span class="text-accent" style="font-size:16px; margin-left:4px;">$4,000/mo value</span></summary>
     <div class="detail-body">
       <ul>
         <li>Pipeline tracking via ClickUp + n8n</li>
@@ -1322,7 +1350,7 @@ details .detail-body ul {
 
   <div class="glow-card text-center">
     <p class="text-secondary mb-8" style="font-size:16px;">90-DAY TOTAL VALUE</p>
-    <p style="font-size:48px; font-weight:700;"><s style="color:var(--text-secondary); font-size:48px;">$91,500</s></p>
+    <p style="font-size:48px; font-weight:700;"><s style="color:var(--text-secondary); font-size:48px;">$90,000</s></p>
     <p class="text-accent mt-12" style="font-size:20px; font-weight:600;">Your investment &rarr; see next slide</p>
   </div>
 </div>
@@ -1528,7 +1556,7 @@ details .detail-body ul {
     </div>
   </div>
 
-  <p class="text-center mb-32" style="font-size:20px; line-height:1.6;">I have space on my calendar <strong>Tuesday or Thursday next week</strong> for the onboarding call.<br>I'll send over contracts and the first invoice today.</p>
+  <p class="text-center mb-32" style="font-size:20px; line-height:1.6;">I can block time this week for the onboarding call &mdash; just pick the day that works best.<br>I'll send over contracts and the first invoice the same day.</p>
 
   <h4 class="mb-16" style="font-size:18px; color:var(--text-secondary);">Common Questions</h4>
 
